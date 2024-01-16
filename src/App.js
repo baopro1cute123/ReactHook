@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import logo from './logo.svg';
+import Covid19 from './views/Covid19/Covid19';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
 function App() {
@@ -44,6 +45,13 @@ function App() {
     current = current.filter(item => item.id !== todo)
     setTodos(current)
   }
+
+  useEffect(()=>{
+    console.log("run use Effec")
+  },[])
+  // useEffect, k có [] lặp vô hạng vs mỗi lần render
+  // [] thì chạy một lần duy nhất
+  // [a] a thay đổi thì hàm useEffect chạy lại
   return (
     <div className="App">
       <header className="App-header">
@@ -66,7 +74,7 @@ function App() {
         <button style={{marginTop: "10px"}} type='button'
                onClick={(event)=> handleEventClick(event)}
         >Click me!</button>
-      
+      <Covid19/>
       </header>
     </div>
   );
