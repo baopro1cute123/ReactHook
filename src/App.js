@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import logo from './logo.svg';
+import { CountDown, NewCountDown } from './views/CountDown/CountDown';
 import Covid19 from './views/Covid19/Covid19';
 import Nav from './views/Nav';
 import Todo from './views/Todo';
@@ -46,6 +47,10 @@ function App() {
     setTodos(current)
   }
 
+  const onTimesup = () => {
+    // alert("Hết giờ")
+  }
+
   useEffect(()=>{
     console.log("run use Effec")
   },[])
@@ -56,6 +61,9 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Nav/>
+      <CountDown onTimesup = {onTimesup}/>
+      <span>--------------------------</span>
+      <NewCountDown/>
 
         <img src={logo} className="App-logo" alt="logo" />
         <h1 style={{color: 'red', fontSize: '40px'}}>Hello My name is {name} địa chỉ {address}</h1>
